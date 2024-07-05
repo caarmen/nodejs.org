@@ -172,13 +172,9 @@ pipeline(
 You can also call [`promisify`][] on pipeline to use it with `async` / `await`:
 
 ```cjs
-const stream = require('node:stream');
+const { pipeline } = require('node:stream/promises');
 const fs = require('node:fs');
 const zlib = require('node:zlib');
-const util = require('node:util');
-
-const pipeline = util.promisify(stream.pipeline);
-
 async function run() {
   try {
     await pipeline(
@@ -194,12 +190,9 @@ async function run() {
 ```
 
 ```mjs
-import stream from 'node:stream';
+import { pipeline } from 'node:stream/promises';
 import fs from 'node:fs';
 import zlib from 'node:zlib';
-import util from 'node:util';
-
-const pipeline = util.promisify(stream.pipeline);
 
 async function run() {
   try {
